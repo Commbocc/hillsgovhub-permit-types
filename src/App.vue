@@ -17,7 +17,13 @@
     <h2 class="my-2">Project</h2>
     <select v-model="selectedProjectIndex" :disabled="!job" class="form-select">
       <option :value="null">-</option>
-      <option v-for="(project, i) in selectedJobProjects" :key="i" :value="i">
+      <option
+        v-for="(project, i) in selectedJobProjects.sort((a, b) =>
+          a.name > b.name ? 1 : -1
+        )"
+        :key="i"
+        :value="i"
+      >
         {{ project.name }}
       </option>
     </select>

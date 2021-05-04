@@ -402,9 +402,9 @@ export const projects = [
   {
     name: 'Solar Panels/Photovoltaic Cells',
     job: 'Residential',
-    description_id: 11,
-    type_id: 0,
-    example_id: 11,
+    description_id: 15,
+    type_id: 7,
+    example_id: 15,
   },
   {
     name: 'Retaining Wall',
@@ -876,7 +876,7 @@ export const constants = {
     {
       id: 0,
       value:
-        'Aluminum Screen Room/Pool Cage (Existing or Proposed), Dumpster Enclosure, New Cell Tower, Park Pedestals, Retaining Wall, Utility Shed, Photovoltaic Panels, Refrigeration/Cooler Equipment, Kitchen Hood, Boiler Equipment, Medical Gas Piping, Commercial Pool/Spa, Billboards, Monuments',
+        'Aluminum Screen Room/Pool Cage (Existing or Proposed), Dumpster Enclosure, New Cell Tower, Park Pedestals, Retaining Wall, Utility Shed, Refrigeration/Cooler Equipment, Kitchen Hood, Boiler Equipment, Medical Gas Piping, Commercial Pool/Spa, Billboards, Monuments',
     },
     {
       id: 1,
@@ -948,7 +948,7 @@ export const constants = {
     {
       id: 15,
       value:
-        'Electrical Service upgrade, generator installation, replacing electrical service panels',
+        'Electrical Service upgrade, generator installation, replacing electrical service panels, Photovoltaic Panels',
     },
     {
       id: 16,
