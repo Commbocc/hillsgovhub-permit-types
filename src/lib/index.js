@@ -1,28 +1,37 @@
-import { ref, computed, watch } from 'vue'
-import { projects, constants } from './data'
+import { ref, computed, watch, reactive } from 'vue'
+import axios from 'axios'
 
 export const jobTypes = ['Commercial', 'Residential']
 export const job = ref(null)
 
-export const selectedJobProjects = computed(
-  () => projects.filter((p) => p.job == job.value) || []
-)
-
-export const selectedProjectIndex = ref(null)
-
-export const selectedProject = computed(() => {
-  if (!selectedProjectIndex.value) return null
-
-  const project = selectedJobProjects.value[selectedProjectIndex.value]
-
-  return {
-    ...project,
-    description: constants.descriptions.find(
-      (x) => x.id == project.description_id
-    ).value,
-    type: constants.types.find((x) => x.id == project.type_id).value,
-    example: constants.examples.find((x) => x.id == project.example_id).value,
-  }
+export const projects = reactive({
+  error: '',
+  loading: false,
+  data: [],
 })
 
-watch(job, () => (selectedProjectIndex.value = null))
+export async function fetchProjects() {
+  projects.loading = true
+
+  try {
+    const { data } = await axios.get('./projects.json')
+    projects.data = data.records
+  } catch (error) {
+  } finally {
+    projects.loading = false
+  }
+}
+
+export const selectedJobProjects = computed(
+  () => projects.data.filter((p) => p.fields.JobType == job.value) || []
+)
+
+export const selectedProjectId = ref(null)
+
+export const selectedProject = computed(() => {
+  if (!selectedProjectId.value) return null
+
+  return selectedJobProjects.value.find((p) => p.id == selectedProjectId.value)
+})
+
+watch(job, () => (selectedProjectId.value = null))

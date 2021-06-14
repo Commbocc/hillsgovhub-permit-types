@@ -15,16 +15,14 @@
     </div>
 
     <h2 class="my-2">Project</h2>
-    <select v-model="selectedProjectIndex" :disabled="!job" class="form-select">
+    <select v-model="selectedProjectId" :disabled="!job" class="form-select">
       <option :value="null">-</option>
       <option
-        v-for="(project, i) in selectedJobProjects.sort((a, b) =>
-          a.name > b.name ? 1 : -1
-        )"
-        :key="i"
-        :value="i"
+        v-for="{ id, fields } in selectedJobProjects"
+        :key="id"
+        :value="id"
       >
-        {{ project.name }}
+        {{ fields.Name }}
       </option>
     </select>
 
@@ -32,17 +30,17 @@
       <h2 class="my-2">New Permit Type</h2>
 
       <div class="card card-body bg-light">
-        {{ selectedProject.type }}
+        {{ selectedProject.fields.TypeValue.join() }}
       </div>
 
       <h2 class="my-2">Description</h2>
       <div class="card card-body bg-light">
-        {{ selectedProject.description }}
+        {{ selectedProject.fields.DescriptionValue.join() }}
       </div>
 
       <h2 class="my-2">Examples</h2>
       <div class="card card-body bg-light">
-        {{ selectedProject.example }}
+        {{ selectedProject.fields.ExampleValue.join() }}
       </div>
     </div>
   </main>
@@ -51,19 +49,22 @@
 <script>
 import {
   jobTypes,
+  fetchProjects,
   job,
   selectedJobProjects,
-  selectedProjectIndex,
+  selectedProjectId,
   selectedProject,
 } from './lib'
 
 export default {
   setup() {
+    fetchProjects()
+
     return {
       jobTypes,
       job,
       selectedJobProjects,
-      selectedProjectIndex,
+      selectedProjectId,
       selectedProject,
     }
   },
