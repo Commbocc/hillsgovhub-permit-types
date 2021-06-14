@@ -5,5 +5,3 @@ dist-ssr
 *.local
 
 origin
-
-public/projects.json
