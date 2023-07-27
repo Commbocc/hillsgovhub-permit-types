@@ -1,25 +1,24 @@
 {
-  "name": "hc-vite-template",
+  "name": "hillsgovhub-permit-types",
+  "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "lint": "eslint --ext .js,.vue src",
-    "airtable": "node airtable.js"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap": "^5.0.0-beta3",
-    "iframe-resizer": "^4.3.1",
-    "vue": "^3.0.5"
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
+    "iframe-resizer": "^4.3.2",
+    "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.2.1",
-    "@vue/compiler-sfc": "^3.0.5",
-    "axios": "^0.21.1",
-    "eslint": "^7.24.0",
-    "eslint-plugin-vue": "^7.9.0",
     "sass": "^1.32.8",
-    "vite": "^2.1.5"
+    "@vitejs/plugin-vue": "^3.1.0",
+    "typescript": "^4.8.2",
+    "vite": "^3.1.0",
+    "vue-tsc": "^0.40.9"
   }
 }
