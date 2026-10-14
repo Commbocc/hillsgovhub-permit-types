@@ -66,15 +66,20 @@ watch(job, () => (selectedProjectId.value = null));
 
         <div class="row my-3">
           <div class="col">
-            <div class="card-header bg-info text-primary fw-bold text-center">
+            <label
+              class="card-header bg-info fw-bold text-center fs-5 d-block"
+              for="project"
+            >
               Project
-            </div>
+            </label>
 
-            <div class="">
+            <div>
               <select
                 v-model="selectedProjectId"
                 :disabled="!job"
                 class="form-select form-select-lg"
+                name="project"
+                id="project"
               >
                 <option :value="undefined">-</option>
 
@@ -90,7 +95,7 @@ watch(job, () => (selectedProjectId.value = null));
           </div>
 
           <div class="col">
-            <div class="card-header bg-info text-primary fw-bold text-center">
+            <div class="card-header bg-info fw-bold text-center fs-5">
               New Permit Type
             </div>
 
@@ -122,12 +127,9 @@ watch(job, () => (selectedProjectId.value = null));
       </div>
     </div>
 
-    <p class="small text-muted text-center">
+    <p class="small text-center">
       To find all necessary submittal items, please view the
-      <a
-        href="https://www.hillsboroughcounty.org/en/businesses/permits-and-records/permit-applications-and-forms/checklists"
-        >permit requirements</a
-      >
+      <a href="https://hcfl.gov/businesses/hillsgovhub">permit requirements</a>
       for your selected permit.
     </p>
   </main>
